@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title th:text="#{cashier.title('Error')}">UQPAY 收银台</title>
+  <link rel="stylesheet" href="/webjars/bootstrap/4.1.0/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="/webjars/font-awesome/5.1.0/css/fontawesome.css" />
+  <link rel="stylesheet" th:href="@{/cashier.css}"/>
+</head>
+<body>
+<header>
+  <nav class="navbar navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="/images/white-logo.png" height="30" class="d-inline-block align-top" alt="" />
+        <span th:text="#{label.cashier}"></span>
+      </a>
+    </div>
+  </nav>
+</header>
+<div class="body text-center">
+  <i class="fas fa-exclamation-circle text-danger h-50"></i>
+  <p th:text="${message}"></p>
+</div>
+<footer>
+  <span>&copy;<a href="https://www.uqpay.com/">UQPAY</a></span>
+</footer>
+</body>
+</html>

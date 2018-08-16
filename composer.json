@@ -1,0 +1,8 @@
+{
+    "require": {
+        "tongjin/sdk": "^1.0"
+    },
+    "config":{
+        "secure-http":false
+    }
+}

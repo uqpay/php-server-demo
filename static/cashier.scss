@@ -1,0 +1,240 @@
+body {
+  background: #f4f4f4;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  .body{
+    flex: 1;
+  }
+}
+header {
+  height: 56px;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+.order-info-box {
+  margin-top: 50px;
+  .merchant-name,
+  .order-date {
+    color: #999;
+    margin-bottom: 10px;
+  }
+  .inner {
+    background: #fff;
+    padding: 30px 30px 10px 30px;
+    p {
+      margin-bottom: 10px;
+    }
+  }
+}
+.pay-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  .pay-inner {
+    background: #fff;
+    padding: 20px 30px;
+    position: relative;
+    h6 {
+      font-size: 16px;
+      font-weight: normal;
+    }
+    .group-btn {
+      .inner {
+        transition: all .2s;
+      }
+    }
+    .group-btn.fixed {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      .inner {
+        background: #fff;
+        position: relative;
+        padding: 1rem 30px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0px -1px 6px 1px #dee2de;
+      }
+    }
+  }
+}
+.pay-method {
+  margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  h5, h6 {
+    font-weight: normal;
+  }
+  h5 {
+    font-size: 16px;
+    border-left: 3px solid #4285f4;
+    padding-left: 15px;
+    margin-bottom: 15px;
+  }
+  h6 {
+    padding-left: 10px;
+    font-size: 14px;
+  }
+  .inner {
+    ul {
+      list-style: none;
+      padding: 0 0;
+      margin-bottom: 0;
+      li {
+        display: inline-block;
+        margin-right: 27px;
+        margin-bottom: 15px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+.pay-method-item {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 148px;
+  height: 48px;
+  border: 1px solid #e6e6e6;
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 15px;
+  &, & i {
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+  }
+  i {
+    width: 30px;
+    height: 30px;
+    display: block;
+    position: absolute;
+    top: -12px;
+    right: -13px;
+    border: 1px solid #4285f4;
+    background: #4285f4;
+    border-radius: 50%;
+    color: #fff;
+    opacity: 0;
+    line-height: 38px;
+    text-align: left;
+  }
+  img {
+    height: 48px;
+  }
+  p {
+    font-size: 14px;
+    line-height: 48px;
+    margin-bottom: 0;
+    flex: 1;
+  }
+  &.checked {
+    border-color: #4285f4;
+    i {
+      opacity: 1;
+    }
+  }
+}
+.qr-box,
+.credit-form-box {
+  overflow: hidden;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+.qr-box {
+  height: 400px;
+  text-align: center;
+  padding-top: 50px;
+  .qr-box-info {
+    color: #464a4c;
+    .iconfont {
+      color: #4285f4;
+      margin-right: 10px;
+    }
+  }
+  .qr-box-inner {
+    position: relative;
+    width: 235px;
+    margin: auto;
+    .qr-box-notice {
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      margin-top: -73px;
+    }
+  }
+}
+.credit-form-box {
+  form {
+    margin: 0 auto;
+    max-width: 450px;
+  }
+  .credit-icon-box {
+    img {
+      height: 48px;
+    }
+  }
+  form {
+    .address-controls {
+      .form-control {
+        margin-bottom: 10px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+.currency {
+  color: #f0ad4e;
+  font-weight: normal;
+  &::after {
+    content: ':';
+    margin-right: 5px;
+  }
+}
+.amount {
+  font-weight: normal;
+}
+.split {
+  font-style: normal;
+  vertical-align: text-bottom;
+  color: #636c72;
+}
+.text-333 {
+  color: #333;
+}
+.text-primary {
+  color: #4285f4;
+}
+
+.alert-modal {
+  .modal-header {
+    border-bottom: none;
+    justify-content: center;
+  }
+  .modal-footer {
+    padding: .5rem;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.fa-spinner {
+  animation: rotate 2s infinite linear;
+}

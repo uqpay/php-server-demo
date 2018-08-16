@@ -1,0 +1,126 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  padding-top: 1.5rem;
+  background: #f0f3f98c;
+}
+
+.name-container {
+  display: flex;
+  justify-content: center;
+}
+.name-container .merchant-name-ico {
+  display: block;
+  width: 40px;
+  background: #4285f4;
+  height: 40px;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  margin-right: 10px;
+}
+.name-container .merchant-name-ico i {
+  line-height: 40px;
+}
+.name-container h2 {
+  width: 280px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.amount-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #999;
+  height: 65px;
+  margin: 30px 20px 0 20px;
+  border-radius: 5px;
+  padding: 0 10px;
+  background: #fff;
+}
+.amount-input p {
+  flex-grow: 1;
+  margin-bottom: 0;
+  padding: 0 10px;
+  font-size: 1.5rem;
+}
+.amount-input .amount-input-label {
+  color: #999;
+}
+
+.number-keyboard {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  border-top: 1px solid #999;
+  background: #fff;
+}
+.number-keyboard .number-box-list {
+  flex: 3;
+  border-right: 1px solid #999;
+}
+.number-keyboard .number-box-action {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.number-keyboard .number-box-list-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.number-keyboard .number-box-list-group + .number-box-list-group {
+  border-top: 1px solid #999;
+}
+.number-keyboard .number-box-list-group.key-size-1 {
+  flex: 1;
+}
+.number-keyboard .number-box-list-group.key-primary {
+  background: #4285f4;
+}
+.number-keyboard .number-box-list-group.key-primary .number-key {
+  color: #fff;
+}
+.number-keyboard .number-key {
+  flex: 1;
+  margin-bottom: 0;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  font-size: 1.5rem;
+  font-weight: 200;
+  transition: all linear 0.1s;
+}
+.number-keyboard .number-key.key-size-2 {
+  flex: 2;
+}
+.number-keyboard .number-key.key-size-0 {
+  flex: 0;
+}
+.number-keyboard .number-key.key-border-left {
+  border-left: 1px solid #999;
+}
+.number-keyboard .number-key.key-border-right {
+  border-right: 1px solid #999;
+}
+.number-keyboard .number-key.key-border-bottom {
+  border-bottom: 1px solid #999;
+}
+.number-keyboard .number-key.key-no-height {
+  height: auto;
+  line-height: 1.2;
+}
+.number-keyboard .number-key:active {
+  background: #4285f4;
+  color: #fff;
+}
+
+.method-group {
+  margin: 30px 20px 0 20px;
+}
+
+/*# sourceMappingURL=qrCashier.css.map */
