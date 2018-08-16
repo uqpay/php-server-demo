@@ -1,9 +1,8 @@
 {
     "require": {
-        "uqpay/payment-sdk": "^1.0"
+        "uqpay/payment-sdk": "^1.0.0"
     },
     "config":{
         "secure-http":false
     }
 }
-

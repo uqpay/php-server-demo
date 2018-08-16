@@ -2,12 +2,12 @@
 
 namespace app;
 
-use sdk\config\cashierConfig;
-use sdk\config\merchantConfig;
-use sdk\config\paygateConfig;
+use uqpay\payment\sdk\config\cashierConfig;
+use uqpay\payment\sdk\config\merchantConfig;
+use uqpay\payment\sdk\config\paygateConfig;
 use core\core;
-use sdk\util\payUtil;
-use \sdk\sdk;
+use uqpay\payment\sdk\util\payUtil;
+use uqpay\payment\sdk;
 
 
 session_start();
