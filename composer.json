@@ -1,6 +1,7 @@
 {
     "require": {
-        "uqpay/payment-sdk": "^1.0.0"
+        "uqpay/payment-sdk": "^1.0",
+        "guzzlehttp/guzzle": "^6.3"
     },
     "config":{
         "secure-http":false

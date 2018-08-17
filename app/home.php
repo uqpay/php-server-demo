@@ -2,13 +2,13 @@
 
 namespace app;
 
+use uqpay\payment\sdk\config\RSAconfig;
+use uqpay\payment\sdk\sdk;
 use uqpay\payment\sdk\config\cashierConfig;
 use uqpay\payment\sdk\config\merchantConfig;
 use uqpay\payment\sdk\config\paygateConfig;
+use uqpay\payment\sdk\utils\payUtil;
 use core\core;
-use uqpay\payment\sdk\util\payUtil;
-use uqpay\payment\sdk;
-
 
 session_start();
 
@@ -19,13 +19,24 @@ class home extends core
 
     function __construct()
     {
-        $this->sdk = new sdk();
-        $this->sdk->merchantConfig->id='1005004';
+        $rsaConfig = new RSAconfig(array(
+            "publicKeyPath"=>"UQPAY_pub.pem",
+            "privateKeyPath"=>"1005004_prv.pem"
+        ));
+
+        $cashierConfig = new cashierConfig(array(
+            "apiRoot"=>"https://cashier.uqpay.cn"
+        ));
+        $merchantConfig = new merchantConfig(array("id"=>'1005004'));
+        $paygateConfig = new paygateConfig(array(
+            "apiRoot"=>"http://gate.uqpay.cn:8084",
+            "rsaConfig"=>$rsaConfig
+        ));
+        $this->sdk = new sdk($paygateConfig,$merchantConfig,$cashierConfig);
     }
 
     function index()
     {
-
         function generateOrderId($figure)
         {
             if (is_int($figure)) {
@@ -56,9 +67,9 @@ class home extends core
         $this->assign('methodId', '');
         $this->assign('result', null);
         $payUtil = new payUtil();
-        $config = new cashierConfig();
+        $config = $this->sdk->paygateConfig;
+        $config->apiRoot=$this->sdk->cashierConfig->apiRoot;
         if (strcmp($getArray["payment"], "cashier") === 0) {
-//            $payUtil->generateCashierLink($getArray, $config);
             header("location: " . $payUtil->generateCashierLink($getArray, $config));
             return;
         } else {
@@ -69,6 +80,7 @@ class home extends core
 
     function pay()
     {
+        $this->sdk->paygateConfig->apiRoot = 'http://gate.uqpay.cn:8084';
         $phpInput = file_get_contents('php://input');
         parse_str($phpInput, $getArray);
         $demoVo = unserialize($_SESSION["demo"]);

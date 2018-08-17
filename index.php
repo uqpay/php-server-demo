@@ -1,6 +1,6 @@
 <?php
 define("VIEW_PATH","app/view/");
-define("DEBUG",false);
+define("DEBUG",true);
 if(DEBUG){
     include 'core/Debug.php';
 }
