@@ -20,16 +20,16 @@ class home extends core
     function __construct()
     {
         $rsaConfig = new RSAconfig(array(
-            "publicKeyPath"=>"UQPAY_pub.pem",
-            "privateKeyPath"=>"1005004_prv.pem"
+            "publicKeyPath"=>"UQPAY_pub.pem", //You can set UQPAY public key path here
+            "privateKeyPath"=>"1005004_prv.pem", //You can set you private key path here
         ));
 
         $cashierConfig = new cashierConfig(array(
-            "apiRoot"=>"https://cashier.uqpay.cn"
+            "apiRoot"=>"https://cashier.uqpay.com" ,
         ));
-        $merchantConfig = new merchantConfig(array("id"=>'1005004'));
+        $merchantConfig = new merchantConfig(array("id"=>'1005004')); //Set your merchant ID or partner ID;
         $paygateConfig = new paygateConfig(array(
-            "apiRoot"=>"http://gate.uqpay.cn:8084",
+            "apiRoot"=>"http://openapi.uapay.com",
             "rsaConfig"=>$rsaConfig
         ));
         $this->sdk = new sdk($paygateConfig,$merchantConfig,$cashierConfig);
