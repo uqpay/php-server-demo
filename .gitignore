@@ -1,5 +1,11 @@
 /vendor/
+<<<<<<< HEAD
 composer.lock
 .idea/
 /.idea/
 .idea/workspace.xml
+=======
+.idea
+.DS_Store
+.idea/**
+>>>>>>> origin/master
