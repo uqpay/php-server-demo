@@ -10,98 +10,98 @@
   <div class="container" style="padding-bottom: 50px;">
     <form method="post" action="/php-sdk-demo/index.php/home/paygate">
       <fieldset>
-        <legend>必填项</legend>
+        <legend>Required</legend>
         <div class="form-group">
-          <label for="merchantId">选择付款途径</label>
+          <label for="merchantId">Select Payment API</label>
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" id="paygate" name="payment" value="paygate">
-            <label class="form-check-label" for="paygate">支付网关</label>
+            <label class="form-check-label" for="paygate">UQPAY Payment Gateway</label>
           </div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" checked type="radio" id="cashier" name="payment" value="cashier">
-            <label class="form-check-label" for="cashier">官方收银台</label>
+            <label class="form-check-label" for="cashier">UQPAY Official Cashier</label>
           </div>
         </div>
         <div class="form-group">
-          <label for="merchantId">商户ID</label>
+          <label for="merchantId">Merchant ID</label>
           <input type="text" name="merchantId" class="form-control" id="merchantId" value=<?php echo $merchantId ?> />
         </div>
         <div class="form-group">
-          <label for="tradeType">交易类型</label>
+          <label for="tradeType">Trade Type</label>
           <input type="text" name="tradeType" class="form-control" id="tradeType" value="pay" readonly="readonly" />
         </div>
         <div class="form-group">
-          <label for="date">订单日期(Unix时间戳)</label>
+          <label for="date">Date(Unix timestamp)</label>
           <input type="text" name="date" class="form-control" id="date" value=<?php echo $date ?> required="required" />
         </div>
         <div class="form-group">
-          <label for="orderId">商户订单号</label>
+          <label for="orderId">Order ID</label>
           <input type="text" name="orderId" class="form-control" id="orderId" value=<?php echo $orderId ?> required="required" />
         </div>
         <div class="form-group">
-          <label for="currency">币种</label>
+          <label for="currency">Currency</label>
           <select name="currency" class="form-control" id="currency" required="required" >
-            <option value="CNY">人民币</option>
-            <option value="USD">美元</option>
-            <option value="GBP">英镑</option>
-            <option value="SGD">新加坡元</option>
+            <option value="CNY">CNY</option>
+            <option value="USD">USD</option>
+            <option value="GBP">GBP</option>
+            <option value="SGD">SGD</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="amount">金额</label>
+          <label for="amount">Amount</label>
           <input type="text" name="amount" class="form-control" id="amount" required="required" />
         </div>
         <div class="form-group">
-          <label for="transName">商品信息</label>
-          <input type="text" name="transName" class="form-control" id="transName" value="收银台demo商品" required="required" />
+          <label for="transName">Goods Info</label>
+          <input type="text" name="transName" class="form-control" id="transName" value="goods from uqpay demo" required="required" />
         </div>
         <div class="form-group">
-          <label for="callbackUrl">异步回调地址</label>
+          <label for="callbackUrl">Back URL</label>
           <input type="url" name="callbackUrl" class="form-control" id="callbackUrl" value="https://cashier.uqpay.cn/demo/async" required="required" />
         </div>
         <div class="form-group">
-          <label for="returnUrl">同步返回地址</label>
+          <label for="returnUrl">Front URL</label>
           <input type="url" name="returnUrl" class="form-control" id="returnUrl" value="https://cashier.uqpay.cn/demo/sync?orderId=<?php echo $orderId ?>" required="required" />
         </div>
       </fieldset>
       <hr />
       <fieldset>
-        <legend>密钥</legend>
+        <legend>RSA</legend>
         <div class="form-group">
-          <label for="quantity">商户私钥</label>
+          <label for="quantity">Merchant Private RSA KEY</label>
           <textarea class="form-control" name="rsaPrivate"></textarea>
         </div>
         <div class="form-group">
-          <label for="quantity">UQPAY公玥</label>
+          <label for="quantity">UQPAY Public RSA KEY</label>
           <textarea class="form-control" name="rsaPublic"></textarea>
         </div>
       </fieldset>
       <fieldset>
-        <legend>选填</legend>
+        <legend>Optional</legend>
         <div class="form-group">
-          <label for="quantity">商品数量</label>
+          <label for="quantity">Quantity of Goods</label>
           <input type="number" name="quantity" class="form-control" id="quantity" th:value="0" />
         </div>
         <div class="form-group">
-          <label for="storeId">店铺ID</label>
+          <label for="storeId">Merchant Store ID</label>
           <input type="number" name="storeId" class="form-control" id="storeId" th:value="0" />
         </div>
         <div class="form-group">
-          <label for="seller">销售员ID</label>
+          <label for="seller">Merchant Seller ID</label>
           <input type="number" name="seller" class="form-control" id="seller" th:value="0" />
         </div>
         <div class="form-group">
-          <label for="channelInfo">渠道补充信息(json格式)</label>
+          <label for="channelInfo">Merchant Reserved Field For Channel (Json String)</label>
           <textarea rows="3" name="channelInfo" class="form-control" id="channelInfo" ></textarea>
         </div>
         <div class="form-group">
-          <label for="extendInfo">扩展信息(json格式)</label>
+          <label for="extendInfo">Merchant Reserved Field (json String)</label>
           <textarea rows="3" name="extendInfo" class="form-control" id="extendInfo" ></textarea>
         </div>
       </fieldset>
       <div style="width: 100%; position: fixed; background: #fff; height: 50px; bottom: 0; left: 0; padding-top: 5px; border-top: 1px solid #999">
         <div class="container text-right">
-          <button type="submit" class="btn btn-primary">走！付钱去</button>
+          <button type="submit" class="btn btn-primary">Go！Pay Now</button>
         </div>
       </div>
     </form>
