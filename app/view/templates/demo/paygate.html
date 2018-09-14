@@ -9,17 +9,17 @@
 <div class="container" style="padding-bottom: 50px;">
   <form method="post" action="/php-sdk-demo/index.php/home/pay">
     <div class="form-group" id="container">
-      <label for="method">支付方式</label>
+      <label for="method">Select Pay Method</label>
       <select name="methodId" class="form-control" id="method" required="required" >
       <?php if ($methodId == 1001): ?>
-        <option selected value="1001">UnionPayQR(暂不支持)</option>
+        <option selected value="1001">UnionPayQR</option>
       <?php else: ?>
-       <option value="1001">UnionPayQR(暂不支持)</option>
+       <option value="1001">UnionPayQR</option>
       <?php endif; ?>
       <?php if ($methodId == 1002): ?>
-        <option selected value="1002">AlipayQR(暂不支持)</option>
+        <option selected value="1002">AlipayQR</option>
       <?php else: ?>
-        <option value="1002">AlipayQR(暂不支持)</option>
+        <option value="1002">AlipayQR</option>
       <?php endif; ?>
       <?php if ($methodId == 1003): ?>
        <option selected value="1003">WeChatQR</option>
@@ -27,14 +27,14 @@
        <option value="1003">WeChatQR</option>
       <?php endif; ?>
       <?php if ($methodId == 1102): ?>
-             <option selected value="1102">WeChatH5(微信内公众号支付)</option>
+             <option selected value="1102">Wechat_WebBased_InApp(微信内公众号支付)</option>
       <?php else: ?>
-       <option value="1102">WeChatH5(微信内公众号支付)</option>
+       <option value="1102">Wechat_WebBased_InApp(微信内公众号支付)</option>
       <?php endif; ?>
       <?php if ($methodId == 1100): ?>
-       <option selected value="1100">UnionPayOnline(暂不支持)</option>
+       <option selected value="1100">UnionPayOnline</option>
       <?php else: ?>
-       <option value="1100">UnionPayOnline(暂不支持)</option>
+       <option value="1100">UnionPayOnline</option>
       <?php endif; ?>
       <?php if ($methodId == 1200): ?>
        <option selected value="1200">VISA</option>
@@ -72,9 +72,9 @@
         <option value="1204">JCB</option>
       <?php endif; ?>
      <?php if ($methodId == 1300): ?>
-        <option selected value="1300">PayPal(暂不支持)</option>
+        <option selected value="1300">PayPal</option>
      <?php else: ?>
-        <option value="1300">PayPal(暂不支持)</option>
+        <option value="1300">PayPal</option>
      <?php endif; ?>
      <?php if ($methodId == 1301): ?>
         <option selected value="1301">Alipay</option>
@@ -85,12 +85,33 @@
         <option selected value="1501">AlipayWap</option>
      <?php else: ?>
         <option value="1501">AlipayWap</option>
-     <?php endif; ?>
+        <?php endif; ?>
+      <?php if ($methodId == 2001): ?>
+        <option selected value="2001">UnionPay_InAPP</option>
+      <?php else: ?>
+         <option value="2001">UnionPay_InAPP</option>
+         <?php endif; ?>
+      <?php if ($methodId == 2002): ?>
+         <option selected value="2002">UnionPay_Online_InAPP</option>
+      <?php else: ?>
+          <option value="2002">UnionPay_Online_InAPP</option>
+          <?php endif; ?>
+      <?php if ($methodId == 1101): ?>
+          <option selected value="1101">Union_Merchant_Host</option>
+      <?php else: ?>
+          <option value="1101">Union_Merchant_Host</option>
+      <?php endif; ?>
       </select>
+      <select name="client" id="client" class="form-control" required>
+        <option value="1">Web</option>
+        <option value="2">IOS</option>
+        <option value="3">Android</option>
+      </select>
+      <p>comments: for in-app pay method, the client must be ios or android</p>
       <div style="display: none" id="creditCardForm">
-        <p id="creditCardMessage">请输入对应卡组织的支付卡信息</p>
+        <p id="creditCardMessage">please enter the credit card info</p>
         <div class="form-group row">
-          <label for="cardNum" class="col-sm-3 col-form-label">卡号</label>
+          <label for="cardNum" class="col-sm-3 col-form-label">Card NO.</label>
           <div class="col-sm-9 input-group">
             <input type="text" class="form-control form-control-lg" id="cardNum" name="cardNum" placeholder="Card No." required="required" />
             <div class="input-group-prepend">
@@ -102,7 +123,16 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="firstName" class="col-sm-3 col-form-label">持卡人</label>
+                  <label for="cardType" class="col-sm-3 col-form-label">cardType</label>
+                  <div class="col-sm-9">
+                    <select class="form-control" name="cardType" id="cardType">
+                      <option value="Credit">Credit</option>
+                      <option value="Debit">Debit</option>
+                    </select>
+                  </div>
+                </div>
+        <div class="form-group row">
+          <label for="firstName" class="col-sm-3 col-form-label">Holder</label>
           <div class="col-sm-9" style="display: flex">
             <input type="text" class="form-control" id="firstName" name="firstName" placeholder="firstName" required="required" />
             &nbsp;&nbsp;
@@ -116,7 +146,7 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="expireMonth" class="col-sm-3 col-form-label">卡有效期至</label>
+          <label for="expireMonth" class="col-sm-3 col-form-label">Card expires</label>
           <div class="col-sm-9" style="display: flex">
             <input type="text" class="form-control" id="expireMonth" name="expireMonth" placeholder="Expire Month" required="required" />
             &nbsp;&nbsp;
@@ -124,7 +154,7 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="phone" class="col-sm-3 col-form-label">银行预留电话号</label>
+          <label for="phone" class="col-sm-3 col-form-label">Bank reserved telephone number</label>
           <div class="col-sm-9">
             <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" required="required" />
           </div>
@@ -136,7 +166,7 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="address" class="col-sm-3 col-form-label">账单地址</label>
+          <label for="address" class="col-sm-3 col-form-label">Billing address</label>
           <div class="col-sm-9 address-controls">
             <textarea rows="3" type="text" class="form-control" id="address" name="address" placeholder="Address" required="required" ></textarea>
             <select class="form-control" id="addressCountry" name="addressCountry" placeholder="Country" required="required">
@@ -156,24 +186,30 @@
     </div>
     <?php if($scenes == 'QRCode') : ?>
     <div>
-      <img width="235" height="235" src="<?php echo $result->QRCodeUrl ?>" src="/php-sdk-demo/static/images/loading.gif" alt="QR" />
+      <img width="235" height="235" src="<?php echo $result->qrcodeurl ?>" src="/php-sdk-demo/static/images/loading.gif" alt="QR" />
     </div>
     <?php endif; ?>
     <?php if($scenes == 'CreditCard') : ?>
     <div>
     <?php $resultArr = (array) $result; ?>
     <?php if(array_key_exists('resultstate',$resultArr)): ?>
-      <p>订单状态：<span>
+      <p>Order state：<span>
            <?php echo $resultArr["resultstate"] ?>
       </span>
       </p>
       <?php endif; ?>
     <?php if(array_key_exists('orderId',$resultArr)): ?>
-      <p>订单号：<span><?php echo $resultArr["orderId"] ?></span></p>
+      <p>Order ID：<span><?php echo $resultArr["orderId"] ?></span></p>
       <?php endif; ?>
     <?php if(array_key_exists('uqOrderId',$resultArr)): ?>
-      <p>UQPAY订单号：<span><?php echo $resultArr["uqOrderId"] ?></span></p>
+      <p>UQPAY Order ID：<span><?php echo $resultArr["uqOrderId"] ?></span></p>
     <?php endif; ?>
+    <?php if(array_key_exists('message',$resultArr)): ?>
+      <p>Message：<span><?php echo $resultArr["message"] ?></span></p>
+    <?php endif; ?>
+    <?php if(array_key_exists('code',$resultArr)): ?>
+          <p>Code：<span><?php echo $resultArr["code"] ?></span></p>
+        <?php endif; ?>
     </div>
 
     <?php endif; ?>
@@ -185,7 +221,7 @@
     <?php if($result == null) : ?>
     <div style="width: 100%; position: fixed; background: #fff; height: 50px; bottom: 0; left: 0; padding-top: 5px; border-top: 1px solid #999">
       <div class="container text-right">
-        <button type="submit" class="btn btn-primary">走！付钱去</button>
+        <button type="submit" class="btn btn-primary">Go！Pay Now</button>
       </div>
     </div>
     <?php endif; ?>

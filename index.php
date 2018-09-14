@@ -7,7 +7,6 @@ if(DEBUG){
 include 'core/function.php';
 include 'core/core.php';
 include 'app/home.php';
-include 'utils/paymethod.php';
 include 'vendor/autoload.php';
 //spl_autoload_register('\core\core::autoload');
 \core\core::run();

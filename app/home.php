@@ -7,6 +7,7 @@ use uqpay\payment\sdk\sdk;
 use uqpay\payment\sdk\config\cashierConfig;
 use uqpay\payment\sdk\config\merchantConfig;
 use uqpay\payment\sdk\config\paygateConfig;
+use uqpay\payment\sdk\utils\payMethod;
 use uqpay\payment\sdk\utils\payUtil;
 use core\core;
 
@@ -80,39 +81,46 @@ class home extends core
 
     function pay()
     {
-        $this->sdk->paygateConfig->apiRoot = 'http://gate.uqpay.cn:8084';
+        $this->sdk->paygateConfig->apiRoot = 'http://192.168.1.174:8084';
         $phpInput = file_get_contents('php://input');
         parse_str($phpInput, $getArray);
         $demoVo = unserialize($_SESSION["demo"]);
-        global $payMethod;
+        $payMethodObject = new payMethod();
+        $payMethod = $payMethodObject->payMethod();
+        $UqpayScanType = $payMethodObject->UqpayScanType;
         $scenes = $payMethod[$getArray["methodId"]];
         $this->assign('scenes', $scenes);
         $payData = $demoVo;
         $payData["methodId"] = $getArray["methodId"];
+        $payData["client"] = $getArray["client"];
+        $scenes = $payMethod[$getArray["methodId"]];
+        $count=count($getArray);
+        $needCardInfo = false;
         switch ($scenes) {
+            case "InApp":
+                break;
             case "QRCode":
-                global $UqpayScanType;
-                $payData["scantype"] = $UqpayScanType["Consumer"];
-                $result = $this->sdk->QRCodePayment($payData);
-                $this->assign('result', $result);
+                $payData["scanType"]=$UqpayScanType["Consumer"];
                 break;
-            case "OnlinePay":
-                $payData["returnUrl"] = $demoVo["returnUrl"];
-                $onlineRedirect = $this->sdk->OnlinePayment($payData);
-                return header("location: " . $onlineRedirect);
-                break;
-            case "CreditCard":
-                $cardResult = $this->sdk->CreditCardPayment($getArray, $payData);
-                $this->assign('result', $cardResult);
+            case "RedirectPay":
+                $payData["returnUrl"]=$demoVo["returnUrl"];
                 break;
             case "ThreeDCreditCard":
-                $redirectUrl = $this->sdk->ThreeDSecurePayment($getArray, $payData);
-                return header("location: " . $redirectUrl);
-            case "InApp":
-                $inAppResult = $this->sdk->InAppPayment($payData);
-                $this->assign('result', $inAppResult);
+                $payData["returnUrl"]=$demoVo["returnUrl"];
+            case "CreditCard":
+            case "MerchantHost":
+                $needCardInfo = true;
+                break;
+            default:
+                $this->assign('hasError', "Not Support Pay Method");
         }
-//    model.addAttribute("hasError", "不支持的支付方式");
+
+        if($needCardInfo){
+            $result = $this->sdk->pay($getArray,$payData);
+        }else {
+            $result = $this->sdk->pay($payData);
+        }
+        $this->assign('result', (object) $result);
         $this->assign('methodId', $getArray["methodId"]);
         $this->assign('scenes', $scenes);
         $this->display("templates/demo/paygate");
