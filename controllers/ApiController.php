@@ -1,20 +1,20 @@
 <?php
 
 namespace app\controllers;
-use tj\sdk\test\models\common\BankCardDTO;
-use tj\sdk\test\models\common\ServerHostDTO;
-use tj\sdk\test\models\emvco\EmvcoCreateDTO;
-use tj\sdk\test\models\emvco\EmvcoGetPayloadDTO;
-use tj\sdk\test\models\enroll\EnrollOrder;
-use tj\sdk\test\models\enroll\VerifyOrder;
-use tj\sdk\test\models\exchangeRate\ExchangeRateQueryDTO;
-use tj\sdk\test\models\merchant\MerchantRegisterDTO;
-use tj\sdk\test\models\operation\OrderCancel;
-use tj\sdk\test\models\operation\OrderQuery;
-use tj\sdk\test\models\operation\OrderRefund;
-use tj\sdk\test\models\pay\PayOrder;
-use tj\sdk\test\models\common\MerchantHostDTO;
-use tj\sdk\test\utils\payMethod;
+use uqpay\payment\sdk\models\common\BankCardDTO;
+use uqpay\payment\sdk\models\common\ServerHostDTO;
+use uqpay\payment\sdk\models\emvco\EmvcoCreateDTO;
+use uqpay\payment\sdk\models\emvco\EmvcoGetPayloadDTO;
+use uqpay\payment\sdk\models\enroll\EnrollOrder;
+use uqpay\payment\sdk\models\enroll\VerifyOrder;
+use uqpay\payment\sdk\models\exchangeRate\ExchangeRateQueryDTO;
+use uqpay\payment\sdk\models\merchant\MerchantRegisterDTO;
+use uqpay\payment\sdk\models\operation\OrderCancel;
+use uqpay\payment\sdk\models\operation\OrderQuery;
+use uqpay\payment\sdk\models\operation\OrderRefund;
+use uqpay\payment\sdk\models\pay\PayOrder;
+use uqpay\payment\sdk\models\common\MerchantHostDTO;
+use uqpay\payment\sdk\utils\payMethod;
 use yii\web\Controller;
 use Yii;
 
