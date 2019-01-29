@@ -1,6 +1,7 @@
 <?php
 
 namespace app\controllers;
+use app\models\Test;
 use uqpay\payment\sdk\models\common\BankCardDTO;
 use uqpay\payment\sdk\models\common\ServerHostDTO;
 use uqpay\payment\sdk\models\emvco\EmvcoCreateDTO;
@@ -126,15 +127,16 @@ class ApiController extends Controller
         echo json_encode($result);
     }
 
-    function actionRefundOrder(){
+    function actionRefund(){
         $postArray = Yii::$app->request->post();
         $orderRefundDto = new OrderRefund();
         $orderRefundDto->attributes = $postArray;
+        $orderRefundDto->date=round(microtime(true)*1000);
         $result= $this->uqpay->Refund($orderRefundDto);
         echo json_encode($result);
     }
 
-    function actionQueryOrder(){
+    function actionQuery(){
         $postArray = Yii::$app->request->post();
         $orderQueryDto = new OrderQuery();
         $orderQueryDto->attributes = $postArray;
@@ -142,10 +144,11 @@ class ApiController extends Controller
         echo json_encode($result);
     }
 
-    function actionCancelOrder(){
+    function actionCancel(){
         $postArray = Yii::$app->request->post();
         $paramsMap = new OrderCancel();
         $paramsMap->attributes = $postArray;
+        $paramsMap->date=round(microtime(true)*1000);
         $paramsMap->transType="cancel";
         $result= $this->uqpay->Cancel($paramsMap);
         echo json_encode($result);
@@ -175,6 +178,8 @@ class ApiController extends Controller
 
     public function actionIndex()
     {
+       $test = new Test();
+       $test->validate();
        echo 'welcome';
     }
 

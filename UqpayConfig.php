@@ -8,9 +8,9 @@ use uqpay\payment\sdk\models\config\SecureConfig;
 use uqpay\payment\sdk\UqpayApi;
 
 $paygateConfig = new paygateConfig();
-$paygateConfig->apiRoot="http://paygate.uqpay.cn";
+$paygateConfig->apiRoot="http://localhost:8080";
 $paygateConfig->testMode = true;
-$paygateConfig->testRSA=new SecureConfig(['publicKeyPath'=>'UQPAY_pub.pem','privateKeyPath'=>'MerchantID_prv.pem']);
+$paygateConfig->testRSA=new SecureConfig(['publicKeyPath'=>'UQPAY_pub.pem','privateKeyPath'=>'resource/MerchantID_prv.pem']);
 $merchantConfig = new merchantConfig();
 $merchantConfig->id='1005004';
 $cashierConfig = new cashierConfig();
