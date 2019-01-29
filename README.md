@@ -1,4 +1,5 @@
-# UQPAY API DEMO （PHP）[Build Status](https://packagist.org/packages/uqpay/payment-sdk)
+# UQPAY API DEMO （PHP）
+* [Build Status](https://packagist.org/packages/uqpay/payment-sdk)
 _applies to 2.X.X version of php-server-sdk
 
 ## Pre - run
