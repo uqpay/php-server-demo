@@ -10,7 +10,7 @@ _applies to 2.X.X version of php-server-sdk
 
 ## Run Demo
 * change the settings as yours in UqpayConfig.php
-* run ``composer install``, start this project or run `` php yii serve`` try the test case
+* run ``composer install``, run `` php yii serve`` try the test case
 
 
 ## Help documents
