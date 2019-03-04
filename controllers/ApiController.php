@@ -3,12 +3,16 @@
 namespace app\controllers;
 use app\models\Test;
 use uqpay\payment\sdk\models\common\BankCardDTO;
+use uqpay\payment\sdk\models\common\BaseJsonRequestDTO;
+use uqpay\payment\sdk\models\common\PageRequestDTO;
 use uqpay\payment\sdk\models\common\ServerHostDTO;
 use uqpay\payment\sdk\models\emvco\EmvcoCreateDTO;
 use uqpay\payment\sdk\models\emvco\EmvcoGetPayloadDTO;
 use uqpay\payment\sdk\models\enroll\EnrollOrder;
 use uqpay\payment\sdk\models\enroll\VerifyOrder;
 use uqpay\payment\sdk\models\exchangeRate\ExchangeRateQueryDTO;
+use uqpay\payment\sdk\models\merchant\ConfigPaymentDTO;
+use uqpay\payment\sdk\models\merchant\DownloadCheckingFileDTO;
 use uqpay\payment\sdk\models\merchant\MerchantRegisterDTO;
 use uqpay\payment\sdk\models\operation\OrderCancel;
 use uqpay\payment\sdk\models\operation\OrderQuery;
@@ -102,6 +106,41 @@ class ApiController extends Controller
         $registerDto=new MerchantRegisterDTO();
         $registerDto->attributes = $postArray;
         $result = $this->uqpay->register($registerDto);
+        return $result;
+    }
+    function actionMerchantDetail(){
+        $postArray = Yii::$app->request->post();
+        $requestDto=new BaseJsonRequestDTO();
+        $requestDto->attributes = $postArray;
+        $result = $this->uqpay->queryMerchantDetail($requestDto);
+        return $result;
+    }
+    function actionMerchantList(){
+        $postArray = Yii::$app->request->post();
+        $requestDto=new PageRequestDTO();
+        $requestDto->attributes = $postArray;
+        $result = $this->uqpay->queryMerchantList($requestDto);
+        return $result;
+    }
+    function actionConfigPay(){
+        $postArray = Yii::$app->request->post();
+        $requestDto=new ConfigPaymentDTO();
+        $requestDto->attributes = $postArray;
+        $result = $this->uqpay->configPayMethod($requestDto);
+        return $result;
+    }
+    function actionConfiguredPay(){
+        $postArray = Yii::$app->request->post();
+        $requestDto=new BaseJsonRequestDTO();
+        $requestDto->attributes = $postArray;
+        $result = $this->uqpay->queryConfiguredPayMethod($requestDto);
+        return $result;
+    }
+    function actionDownloadCheckingFile(){
+        $postArray = Yii::$app->request->post();
+        $requestDto=new DownloadCheckingFileDTO();
+        $requestDto->attributes = $postArray;
+        $result = $this->uqpay->downloadCheckingFiles($requestDto,'D:\workSpace\fileUpload');
         return $result;
     }
 
