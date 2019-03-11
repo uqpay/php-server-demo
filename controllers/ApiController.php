@@ -140,7 +140,7 @@ class ApiController extends Controller
         $postArray = Yii::$app->request->post();
         $requestDto=new DownloadCheckingFileDTO();
         $requestDto->attributes = $postArray;
-        $result = $this->uqpay->downloadCheckingFiles($requestDto,'D:\workSpace\fileUpload');
+        $result = $this->uqpay->downloadCheckingFiles($requestDto,dirname(__FILE__));
         return $result;
     }
 
