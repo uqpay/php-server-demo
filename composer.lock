@@ -1,0 +1,64 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "f921f99afc51d6af3a1530afb496377e",
+    "packages": [
+        {
+            "name": "uqpay/uqpay_php",
+            "version": "v3.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/uqpaytechnology/uqpay-php.git",
+                "reference": "ed8ca2909fc8c4eaa2e3437cb92973bafe80ed50"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/uqpaytechnology/uqpay-php/zipball/ed8ca2909fc8c4eaa2e3437cb92973bafe80ed50",
+                "reference": "ed8ca2909fc8c4eaa2e3437cb92973bafe80ed50",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-openssl": "*",
+                "php": ">=5.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "uqpay\\payment\\": "lib/UQPay"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "uqpay",
+                    "email": "zw@uqpay.com"
+                }
+            ],
+            "description": "UQPay Gateway PHP Server Library",
+            "homepage": "https://developer.uqpay.com/api/#/",
+            "keywords": [
+                "payment",
+                "uqpay"
+            ],
+            "time": "2019-09-06T11:33:53+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "ext-curl": "*"
+    },
+    "platform-dev": []
+}
