@@ -1,0 +1,33 @@
+{
+  "name": "uqpay/uqpay_php",
+  "type": "library",
+  "description": "UQPay Gateway PHP Server Library",
+  "keywords": [
+    "uqpay",
+    "payment"
+  ],
+  "homepage": "https://developer.uqpay.com/api/#/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "uqpay",
+      "email": "zw@uqpay.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.6",
+    "ext-openssl": "*",
+    "ext-json": "*",
+    "ext-curl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "uqpay\\payment\\": "lib/UQPay"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Test\\": "tests"
+    }
+  }
+}
