@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d1efc128e91f8e7b7a81cabf513eceb5",
+    "content-hash": "f74fbc306a5ed0547b484f5f8fd8e94b",
     "packages": [
         {
             "name": "uqpay/uqpay_php",
-            "version": "v3.0.4",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/uqpaytechnology/uqpay-php.git",
-                "reference": "a9252c74f8a8f4be3af84af1c8e0a42ed696c6d2"
+                "reference": "45aafb908cc23e6c2139ec1fd2fe0d97aafc25cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uqpaytechnology/uqpay-php/zipball/a9252c74f8a8f4be3af84af1c8e0a42ed696c6d2",
-                "reference": "a9252c74f8a8f4be3af84af1c8e0a42ed696c6d2",
+                "url": "https://api.github.com/repos/uqpaytechnology/uqpay-php/zipball/45aafb908cc23e6c2139ec1fd2fe0d97aafc25cc",
+                "reference": "45aafb908cc23e6c2139ec1fd2fe0d97aafc25cc",
                 "shasum": ""
             },
             "require": {
@@ -48,7 +48,7 @@
                 "payment",
                 "uqpay"
             ],
-            "time": "2019-09-10T10:31:36+00:00"
+            "time": "2019-10-25T09:17:55+00:00"
         }
     ],
     "packages-dev": [],
