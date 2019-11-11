@@ -29,7 +29,6 @@ $uqpay_gateway_merchant = new Gateway($uqpay_config_merchant);
  **/
 class HttpClient implements HttpClientInterface {
 	public function post( array $headers, $body, $url ) {
-		var_dump($body);
 		$curl_headers = array();
 		$curl_headers[] = 'Content-type: '.$headers['content-type'];
 		$curl_headers[] = 'UQPAY-Version: '.$headers['UQPAY-Version'];
