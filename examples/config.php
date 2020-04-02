@@ -48,7 +48,7 @@ class HttpClient implements HttpClientInterface {
 $uqpay_gateway_merchant->setHttpClient(new HttpClient());
 
 // test as a partner
-$partner_id = 1005209;
+$partner_id = 1005238;
 $partner_prv_key = file_get_contents(dirname(__FILE__).'/../partner_prv.pem');
 $partner_pub_key = file_get_contents(dirname(__FILE__).'/../partner_UQPAY_pub.pem');
 

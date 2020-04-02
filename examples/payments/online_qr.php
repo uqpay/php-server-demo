@@ -42,3 +42,27 @@ try {
 	// this means the payment is failed, you can get more detail by check $e->message
 	var_dump($e->getMessage());
 }
+
+//========
+// Test as Partner
+//========
+var_dump("======= Test As Partner =======");
+$payment_order->order_id = time();
+$payment_order->merchant_id = 1005239;
+try {
+	$result = $uqpay_gateway_partner->pay( $payment_order );
+	/**
+	 * in the result you will get the QR payload (check $result->qr_payload)
+	 * you can use the payload generate a QR Code Image
+	 * also you can use the QR Code Url (check $result->qr_url) generate by UQPAY
+	 */
+	var_dump($result);
+} catch ( ReflectionException $e ) {
+	// the library need ReflectionClass
+} catch ( \uqpay\payment\config\security\SecurityUqpayException $e ) {
+	// this means you lost some parameters for authentication， eg: merchant ID, RSA key ...
+	var_dump($e->getMessage());
+} catch ( \uqpay\payment\UqpayException $e ) {
+	// this means the payment is failed, you can get more detail by check $e->message
+	var_dump($e->getMessage());
+}
