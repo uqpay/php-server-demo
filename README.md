@@ -26,7 +26,7 @@ php -q examples/payments/[what you want try].php
 ```
 
 ## UQPAY PHP Library
- * [PHP Server Demo](https://github.com/uqpaytechnology/uqpay-php)
+ * [See more](https://github.com/uqpaytechnology/uqpay-php)
 
 ## Documentation
 
