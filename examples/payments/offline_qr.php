@@ -11,12 +11,14 @@ include dirname( __FILE__ ) . '/../config.php';
  * this example user union pay online qr
  */
 $payment_order = new PaymentOrder();
-$payment_order->method_id = PayMethodHelper::UNION_PAY_ONLINE_QR;
+$payment_order->method_id = PayMethodHelper::WECHAT_OFFLINE_QR;
 $payment_order->order_id = time();
 $payment_order->trans_name = 'product name';
 $payment_order->amount = 1;
 $payment_order->currency = 'SGD';
 $payment_order->date = time();
+$payment_order->merchant_city = 'shanghai';
+$payment_order->terminal_id = '123123';
 $payment_order->client_ip = '127.0.0.1';
 $payment_order->callback_url = 'https://localhost:8080/async';
 

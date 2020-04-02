@@ -10,8 +10,8 @@ $queryOrder->date = time();
 /**
  * required rule: $order_id not empty || $uqpay_order_id not empty
  */
-$queryOrder->order_id = 'your origin order id';
-$queryOrder->uqpay_order_id = 'your origin order uqpay order id';
+$queryOrder->order_id = '303';
+// $queryOrder->uqpay_order_id = 'your origin order uqpay order id';
 
 try {
 	$re_result = $uqpay_gateway_merchant->query( $queryOrder );
